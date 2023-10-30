@@ -1,0 +1,21 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  
+.card {
+    width: 17%;
+    margin: 10px;
+}
+
+.card-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+  }
