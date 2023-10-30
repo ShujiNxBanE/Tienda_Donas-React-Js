@@ -6,6 +6,12 @@ import { useState } from 'react';
 
 function App() {
 
+  const [isNombreLocalClicked, setIsNombreLocalClicked] = useState(false);
+  const handleButtonNombreLocal = () => {
+      // Actualiza el estado a true cuando se hace clic en el botón
+      setIsNombreLocalClicked(!isNombreLocalClicked);
+  };
+
   function addDonutToFavorites(element) {
     if(listaDonasFavoritas.find((dona) => dona.Id === element.Id)){
       console.log("Dona repetida");
@@ -38,9 +44,13 @@ function App() {
               removeFavorite={removeDonutToFavorites} 
               NewDonut={addNewDonut}
               value={listaDonas}
+              onClick={handleButtonNombreLocal}
       />
-      <DonutCard value={listaDonas} addFavorite={addDonutToFavorites} />
-      
+      <DonutCard 
+              value={listaDonas} 
+              addFavorite={addDonutToFavorites} 
+              isNombreLocalClicked={isNombreLocalClicked}
+      />
     </div>
   );
 }
