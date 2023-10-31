@@ -3,6 +3,7 @@ import { AgregarDona } from "./AgregarDona";
 import { GaleriaDonas } from "./GaleriaDonas";
 import { DonutContext } from "../App";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 export function NavBar (props){
 
     const donutContext = useContext(DonutContext);
@@ -27,6 +28,8 @@ export function NavBar (props){
                 <div className="container-fluid">
                     <a className="navbar-brand" onClick={donutContext.handleButtonNombreLocal} type="button">{props.nombreLocal}</a>
                     <div style={NavBarStyle}>
+                        <Link type="button" className="btn btn-primary" to={"/"}>Inicio</Link>
+                        <Link type="button" className="btn btn-success" to={"/Json"}>Datos Json</Link>
                         <FilterButton 
                             nombreLocal={props.nombreLocal} 
                             favoritas={props.elements} 
