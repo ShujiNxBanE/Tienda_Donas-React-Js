@@ -1,7 +1,11 @@
 import { FilterButton } from "./FilterButton";
 import { AgregarDona } from "./AgregarDona";
 import { GaleriaDonas } from "./GaleriaDonas";
+import { DonutContext } from "../App";
+import { useContext } from "react";
 export function NavBar (props){
+
+    const donutContext = useContext(DonutContext);
 
     const NavBarStyle = {
         display: 'flex',
@@ -21,7 +25,7 @@ export function NavBar (props){
             <span> | Donas de todo tipo para satisfacer tu paladar, con diferentes sabores y colores que endulsan incluso la vista, disfruta de nuestras recetas hechas en {props.nombreLocal} ! ! ! !</span>
             <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
                 <div className="container-fluid">
-                    <a className="navbar-brand" onClick={props.onClick} type="button">{props.nombreLocal}</a>
+                    <a className="navbar-brand" onClick={donutContext.handleButtonNombreLocal} type="button">{props.nombreLocal}</a>
                     <div style={NavBarStyle}>
                         <FilterButton 
                             nombreLocal={props.nombreLocal} 

@@ -2,7 +2,9 @@ import './App.css';
 import { NavBar } from './components/NavBar';
 import { DonutCard } from './components/DonutCard';
 import { dataDonut } from "./data/Donut"
-import { useState } from 'react';
+import  React, { useState } from 'react';
+
+export const DonutContext = React.createContext();  
 
 function App() {
 
@@ -39,18 +41,18 @@ function App() {
 
   return (
     <div>
-      <NavBar nombreLocal ="MelRo Donuts" 
-              elements={listaDonasFavoritas} 
-              removeFavorite={removeDonutToFavorites} 
-              NewDonut={addNewDonut}
-              value={listaDonas}
-              onClick={handleButtonNombreLocal}
-      />
-      <DonutCard 
-              value={listaDonas} 
-              addFavorite={addDonutToFavorites} 
-              isNombreLocalClicked={isNombreLocalClicked}
-      />
+      <DonutContext.Provider value={{handleButtonNombreLocal , isNombreLocalClicked}}>
+        <NavBar nombreLocal ="MelRo Donuts" 
+                elements={listaDonasFavoritas} 
+                removeFavorite={removeDonutToFavorites} 
+                NewDonut={addNewDonut}
+                value={listaDonas}
+        />
+        <DonutCard 
+                value={listaDonas} 
+                addFavorite={addDonutToFavorites} 
+        />
+      </DonutContext.Provider>
     </div>
   );
 }

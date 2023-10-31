@@ -1,7 +1,10 @@
 import "../Css/DonutCard.css";
 import { InfoDonut } from "./InfoDonut";
-
+import { DonutContext } from "../App";
+import { useContext } from "react";
 export function DonutCard(props) {
+
+  const donutContext = useContext(DonutContext);
 
   const alertStyle = {
       margin:"10px",
@@ -14,7 +17,7 @@ export function DonutCard(props) {
 
   return (
     <>
-      {props.isNombreLocalClicked ? (
+      {donutContext.isNombreLocalClicked ? (
         <div class="alert alert-danger" role="alert" style={alertStyle}>
             <a>Descubre el paraíso de las donas en MelRo Donuts, donde cada mordisco es una explosión de sabor. 
             Desde las clásicas glaseadas hasta las creaciones únicas, nuestras donas son una delicia fresca y tentadora. 
