@@ -42,17 +42,13 @@ function App() {
 
   return (
     <div>
-      <DonutContext.Provider value={{handleButtonNombreLocal , isNombreLocalClicked, listaDonas}}>
+      <DonutContext.Provider value={{handleButtonNombreLocal , isNombreLocalClicked, listaDonas,addDonutToFavorites}}>
         <NavBar nombreLocal ="MelRo Donuts" 
                 elements={listaDonasFavoritas} 
                 removeFavorite={removeDonutToFavorites} 
                 NewDonut={addNewDonut}
                 value={listaDonas}
         />
-        {/* <DonutCard 
-                value={listaDonas} 
-                addFavorite={addDonutToFavorites} 
-        /> */}
         <Outlet />
       </DonutContext.Provider>
     </div>
